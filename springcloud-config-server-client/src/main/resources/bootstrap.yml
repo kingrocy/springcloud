@@ -1,0 +1,18 @@
+server:
+    port: 8084
+
+spring:
+    application:
+        name: config-server-client
+    cloud:
+        config:
+            profile: dev
+            label: master
+            uri: http://localhost:8083
+
+#springboop 2.0之后 spring-boot-starter-actuator将/refresh等接口关闭了。。通过下面配置开启
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

@@ -1,0 +1,15 @@
+server:
+    port: 8083
+
+spring:
+    application:
+        name: config-server
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/kingrocy/springcloud-config-server-repo.git
+                    searchPaths: '{application}'
+                    username:
+                    password:
+            label: master
