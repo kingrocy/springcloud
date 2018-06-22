@@ -10,6 +10,6 @@
  
 - [x] 断路器hystrixd
 
-- [ ] 路由网关zuul
+- [x] 路由网关zuul
  
 - [ ] 消息总线 springcloud bus

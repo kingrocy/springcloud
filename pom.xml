@@ -10,10 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>springcloud-eureka-server</module>
-        <module>springcloud-eureka-client</module>
+        <module>springcloud-eureka-client-1</module>
         <module>springcloud-config-server</module>
         <module>springcloud-config-server-client</module>
         <module>springcloud-feign</module>
+        <module>springcloud-zuul</module>
+        <module>springcloud-eureka-client-2</module>
     </modules>
 
     <parent>

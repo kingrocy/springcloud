@@ -1,0 +1,29 @@
+server:
+    port: 8088
+
+
+spring:
+    application:
+        name: zuul-client
+
+
+eureka:
+    instance:
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8090/eureka/
+
+
+
+zuul:
+    routes:
+        eurekaclient1:
+            path: /eurekaclient1/**
+            serviceId: eureka-client-1
+        eurekaclient2:
+            path: /eurekaclient2/**
+            serviceId: eureka-client-2
+
+
