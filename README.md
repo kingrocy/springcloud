@@ -6,9 +6,9 @@
 
 - [x] 分布式配置中心config-server的搭建
  
-- [ ] 服务消费者Feign
+- [x] 服务消费者Feign
  
-- [ ] 断路器hystrixd
+- [x] 断路器hystrixd
 
 - [ ] 路由网关zuul
  

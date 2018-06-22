@@ -1,0 +1,47 @@
+server:
+    port: 8099
+
+
+spring:
+    application:
+        name: feign-client
+
+
+eureka:
+    instance:
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8090/eureka/
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+#hystrix熔断开启
+feign:
+    hystrix:
+        enabled: true
+
+#hystrix超时时间
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 9000
+
+
+#fiegn超时时间和重试次数配置
+ribbon:
+    ReadTimeout: 8100  #请求处理的超时时间
+    ConnectTimeout: 3000 #请求连接的超时时间
+    #重试次数= MaxAutoRetries +  MaxAutoRetriesNextServer + (MaxAutoRetries * MaxAutoRetriesNextServer)
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 0
+
+#注意事项：feign开启hystrix时，feign配置的超时时间是无效的。。。但请求重试次数是有效的。。 hystrix的超时时间需要单独配置
