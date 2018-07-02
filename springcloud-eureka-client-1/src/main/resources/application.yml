@@ -1,3 +1,6 @@
+source: springcloud-eureka-client-1
+environment: dev
+
 server:
     port: 9001
 

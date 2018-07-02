@@ -1,5 +1,8 @@
 package com.yunhui.service;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+import com.yunhui.utils.FlumeClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +38,16 @@ public class CoreService {
     @GetMapping("/service")
     public String service(){
         return "eurekaclient1 service,port:"+port;
+    }
+
+
+    @Autowired
+    FlumeClient client;
+
+    @GetMapping("/log")
+    public String log(){
+        client.info("hello,this is Eureka Client-1");
+        return "success";
     }
 
 }

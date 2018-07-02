@@ -16,6 +16,7 @@
         <module>springcloud-feign</module>
         <module>springcloud-zuul</module>
         <module>springcloud-eureka-client-2</module>
+        <module>common</module>
     </modules>
 
     <parent>
