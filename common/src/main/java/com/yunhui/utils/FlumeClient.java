@@ -7,6 +7,8 @@ import org.apache.flume.api.RpcClient;
 import org.apache.flume.api.RpcClientFactory;
 import org.apache.flume.event.EventBuilder;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +33,25 @@ public class FlumeClient {
     }
 
     private void sendDataToFlume(String data, String sourceName, String environment, String level) {
-        Event event = EventBuilder.withBody(data, Charset.forName("UTF-8"));
+        //TODO 类名 \t 时间
+        StackTraceElement stack[] = (new Throwable()).getStackTrace();
+        //第三个 就是外部调用的类
+        StackTraceElement s = stack[2];
+        String className=s.getClassName();
+        String methodName=s.getMethodName();
+        int lineNumber=s.getLineNumber();
+        String time=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        StringBuilder sb=new StringBuilder();
+        sb.append(time);
+        sb.append("\t");
+        sb.append(className);
+        sb.append("\t");
+        sb.append(methodName);
+        sb.append("\t");
+        sb.append(lineNumber);
+        sb.append("\t");
+        sb.append(data);
+        Event event = EventBuilder.withBody(sb.toString(), Charset.forName("UTF-8"));
         Map<String, String> hdrs = new HashMap();
         hdrs.put("timestamp", String.valueOf(System.currentTimeMillis()));
         hdrs.put("flume.client.source", sourceName);
@@ -60,4 +80,5 @@ public class FlumeClient {
     public void error(String data) {
         sendDataToFlume(data, sourceName, environment, FlumeLevelEnum.FLUME_LEVEL_ERROR.getLevel());
     }
+
 }

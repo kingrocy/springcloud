@@ -12,4 +12,5 @@ public class FlumeConstant {
     public static final String IP="116.196.66.248";
 
     public static final int PORT =8089;
+
 }

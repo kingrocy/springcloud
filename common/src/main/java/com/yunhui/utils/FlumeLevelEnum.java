@@ -22,4 +22,6 @@ public enum  FlumeLevelEnum {
     public void setLevel(String level) {
         this.level = level;
     }
+
+
 }
