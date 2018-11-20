@@ -17,6 +17,8 @@
         <module>springcloud-zuul</module>
         <module>springcloud-eureka-client-2</module>
         <module>common</module>
+        <module>springcloud-task</module>
+        <module>springcloud-gateway</module>
     </modules>
 
     <parent>

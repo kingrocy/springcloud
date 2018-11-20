@@ -10,6 +10,22 @@ spring:
                 git:
                     uri: https://github.com/kingrocy/springcloud-config-server-repo.git
                     searchPaths: '{application}'
-                    username:
-                    password:
+                    username: kingrocy
+                    password: dsy6823273
             label: master
+    rabbitmq:
+        host: 192.168.0.16
+        port: 5672
+        username: juanet
+        password: juanet2018
+        virtual-host: juanet
+
+# http://localhost:8083/actuator/bus-refresh 使用此链接 刷新集群配mos
+
+#重点：在spring boot 2.0版本中一定要修改此配置，可以选择【"health","mappings","bus-refresh"】三种选项暴露那些端点
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"

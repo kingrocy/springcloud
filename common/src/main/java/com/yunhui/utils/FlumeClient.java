@@ -45,8 +45,9 @@ public class FlumeClient {
         sb.append(time);
         sb.append("\t");
         sb.append(className);
-        sb.append("\t");
+        sb.append(".");
         sb.append(methodName);
+        sb.append("()");
         sb.append("\t");
         sb.append(lineNumber);
         sb.append("\t");

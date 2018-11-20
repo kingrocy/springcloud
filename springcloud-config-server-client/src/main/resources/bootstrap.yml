@@ -1,5 +1,5 @@
 server:
-    port: 8084
+    port: 8085
 
 spring:
     application:
@@ -9,6 +9,12 @@ spring:
             profile: dev
             label: master
             uri: http://localhost:8083
+    rabbitmq:
+        host: 192.168.0.16
+        port: 5672
+        username: juanet
+        password: juanet2018
+        virtual-host: juanet
 
 #springboop 2.0之后 spring-boot-starter-actuator将/refresh等接口关闭了。。通过下面配置开启
 

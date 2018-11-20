@@ -1,0 +1,22 @@
+server:
+    port: 9002
+
+
+spring:
+    application:
+        name: service-task
+
+
+eureka:
+    instance:
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
+    client:
+        serviceUrl:
+            defaultZone: http://127.0.0.1:8090/eureka/
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
