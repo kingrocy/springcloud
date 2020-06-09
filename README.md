@@ -12,4 +12,4 @@
 
 - [x] 路由网关zuul
  
-- [ ] 消息总线 springcloud bus
+- [x] 消息总线 springcloud bus
